@@ -12,7 +12,7 @@
 /build
 
 
-/courselist.json
+/src/courselist.json
 # misc
 .DS_Store
 .env.local
