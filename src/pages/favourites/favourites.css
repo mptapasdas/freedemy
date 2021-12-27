@@ -1,0 +1,13 @@
+.favourite-container {
+  background-color: #344163;
+  overflow-y: scroll;
+}
+.favourite-course-description {
+  padding: 1rem;
+  margin-bottom: 2rem;
+  background-color: #212b44;
+  color: white;
+  font-weight: 600;
+  font-size: 1.8rem;
+  text-align: center;
+}

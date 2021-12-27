@@ -1,0 +1,18 @@
+.footer-container {
+  /* height: 100vh; */
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #212b44;
+  padding: 1rem;
+  margin-top: auto;
+}
+.made-by {
+  text-decoration: none;
+  color: grey;
+}
+.github-icon {
+  color: grey;
+}

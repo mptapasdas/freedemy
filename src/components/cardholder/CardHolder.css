@@ -1,14 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet');
-.background-container {
-  overflow-y: scroll;
-  height: 100vh;
-}
-.main-body {
-  padding: 0;
-  overflow-y: scroll;
+
+.bg-container {
+  background-size: cover;
+  font-family: Poppins, sans-serif;
+  background-color: #344163;
+  overflow-y: inherit;
+  min-height: 100vh;
+  /* #334062 */
 }
 
-.app-container {
-  overflow-y: scroll;
+@media screen and (max-width: 768px) {
 }
