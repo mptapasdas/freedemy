@@ -1,16 +1,10 @@
 import React from "react";
-import "./card.css";
+
 import { useState } from "react";
-import { getFavouriteCourseCodeListFromLocalStorage } from "../../functions/functions";
-import { removeElementFromArray } from "../../functions/functions";
 
 import { useGlobalContext } from "../../context-providerr/context-provider";
 
-const isFavourite = (code) => {
-  let favouriteCourseCodeList = getFavouriteCourseCodeListFromLocalStorage();
-  const index = favouriteCourseCodeList.indexOf(code);
-  return index > -1;
-};
+import "./card.css";
 
 const Card = (props) => {
   const {
@@ -24,27 +18,18 @@ const Card = (props) => {
     onTagClick,
   } = props;
 
+  const { openModal, shareCourse, handleLike, handleUnlike, isFavourite } =
+    useGlobalContext();
+
   const [liked, setLiked] = useState(isFavourite(code) ? true : false);
-  const { openModal, shareCourse } = useGlobalContext();
 
   const likeHandler = (code) => {
-    let favouriteCourseCodeList = getFavouriteCourseCodeListFromLocalStorage();
-    favouriteCourseCodeList.push(code);
-    favouriteCourseCodeList = [...new Set(favouriteCourseCodeList)];
-    localStorage.setItem(
-      "favouriteCourseCodes",
-      JSON.stringify(favouriteCourseCodeList)
-    );
+    handleLike(code);
     setLiked(true);
   };
 
   const unlikeHandler = (code) => {
-    let favouriteCourseCodeList = getFavouriteCourseCodeListFromLocalStorage();
-    removeElementFromArray(code, favouriteCourseCodeList);
-    localStorage.setItem(
-      "favouriteCourseCodes",
-      JSON.stringify(favouriteCourseCodeList)
-    );
+    handleUnlike(code);
     setLiked(false);
   };
 
