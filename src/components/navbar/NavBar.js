@@ -7,7 +7,7 @@ const NavBar = () => {
   return (
     <Navbar collapseOnSelect expand='md' className='navbar' sticky='top'>
       <Container>
-        <Link href='https://fredemy-test.netlify.app' target='_self'>
+        <Link href='https://fredemy-test.netlify.app' target='_parent'>
           <Navbar.Brand className='title'>
             <span className='title-first'>Free</span>
             <span className='title-second'>Demy</span>
