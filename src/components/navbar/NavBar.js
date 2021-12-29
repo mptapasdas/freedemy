@@ -7,7 +7,7 @@ const NavBar = () => {
   return (
     <Navbar collapseOnSelect expand='md' className='navbar' sticky='top'>
       <Container>
-        <Link to='/'>
+        <Link href='https://fredemy-test.netlify.app' target='_blank'>
           <Navbar.Brand className='title'>
             <span className='title-first'>Free</span>
             <span className='title-second'>Demy</span>
@@ -20,6 +20,9 @@ const NavBar = () => {
 
         <Navbar.Collapse id='responsive-navbar-nav'>
           <Nav className='me-auto ml-auto'>
+            <Link to='/' className='text-color text-decoration-none'>
+              <button className='nav-button'>Home</button>
+            </Link>
             <Link to='/favourites' className='text-color text-decoration-none'>
               <button className='nav-button'>Favourites</button>
             </Link>
