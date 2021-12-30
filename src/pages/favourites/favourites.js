@@ -6,6 +6,7 @@ import { getFavouriteCourseCodeListFromLocalStorage } from "../../functions/func
 import "./favourites.css";
 
 let courseList = require("../../courselist.json");
+
 const Favourites = () => {
   useEffect(() => {
     document.title = "Freedemy | Favourites";
@@ -18,7 +19,7 @@ const Favourites = () => {
   };
   return (
     <div className='h-100 favourite-container'>
-      <div className='bg-container container-fluid' id='style-2'>
+      <div className='bg-container container-fluid'>
         <div className='row row-containers'>
           <h1 className='col-12 favourite-course-description'>
             {favouriteCourseCodeList.length === 0

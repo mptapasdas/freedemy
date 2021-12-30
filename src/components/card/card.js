@@ -84,7 +84,7 @@ const Card = (props) => {
                 onClick={() => unlikeHandler(code)}></i>
             ) : (
               <i
-                className='far fa-star star-icon star-hover'
+                className='far fa-star star-default star-hover'
                 onClick={() => likeHandler(code)}></i>
             )}
           </div>

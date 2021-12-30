@@ -124,16 +124,18 @@
   text-decoration: none;
 }
 
-.star-icon {
+.star-default {
   color: grey;
   font-size: 1.5rem;
   margin-left: auto;
+  cursor: pointer;
 }
 
 .star-liked {
   color: #ffdf01;
   font-size: 1.5rem;
   margin-left: auto;
+  cursor: pointer;
 }
 
 .star-hover {
