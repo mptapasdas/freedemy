@@ -52,6 +52,9 @@
   -o-transition: all 0.3s ease-in-out;
 }
 
+.nav-button-highlight {
+  background-color: #344163;
+}
 .nav-button:hover {
   color: #ffffff;
   border-color: #04e9ae;

@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import "./NavBar.css";
 
 const NavBar = () => {
+  const [page, setPage] = useState("home");
+  const changePage = (currentPage) => {
+    setPage(currentPage);
+  };
   return (
     <Navbar collapseOnSelect expand='md' className='navbar' sticky='top'>
       <Container>
@@ -21,13 +25,37 @@ const NavBar = () => {
         <Navbar.Collapse id='responsive-navbar-nav'>
           <Nav className='me-auto ml-auto'>
             <Link to='/' className='text-color text-decoration-none'>
-              <button className='nav-button'>Home</button>
+              <button
+                className={`${
+                  page === "home"
+                    ? "nav-button nav-button-highlight"
+                    : "nav-button"
+                }`}
+                onClick={() => changePage("home")}>
+                Home
+              </button>
             </Link>
             <Link to='/favourites' className='text-color text-decoration-none'>
-              <button className='nav-button'>Favourites</button>
+              <button
+                className={`${
+                  page === "favourites"
+                    ? "nav-button nav-button-highlight"
+                    : "nav-button"
+                }`}
+                onClick={() => changePage("favourites")}>
+                Favourites
+              </button>
             </Link>
             <Link to='/about' className='text-color text-decoration-none'>
-              <button className='nav-button'>About</button>
+              <button
+                className={`${
+                  page === "about"
+                    ? "nav-button nav-button-highlight"
+                    : "nav-button"
+                }`}
+                onClick={() => changePage("about")}>
+                About
+              </button>
             </Link>
           </Nav>
         </Navbar.Collapse>
