@@ -1,0 +1,6 @@
+.api-container {
+  background-color: #344163;
+  display: flex;
+  flex-direction: column;
+  padding-top: 2rem;
+}
