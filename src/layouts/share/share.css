@@ -1,0 +1,51 @@
+.share-items-container {
+    margin-top: 2rem;
+}
+.share-info {
+    background-color: #344163;
+    border-radius: 2rem;
+    padding: 1rem;
+    font-size: 0.7rem;
+    cursor: pointer;
+}
+
+.share-buttons {
+    background-color: transparent;
+    text-decoration: none;
+    border-width: 0;
+    padding: 1rem;
+    font-size: 1.5rem;
+    transition: transform 400ms ease-in-out;
+    -webkit-transition: transform 400ms ease-in-out;
+    -moz-transition: transform 400ms ease-in-out;
+    -ms-transition: transform 400ms ease-in-out;
+    -o-transition: transform 400ms ease-in-out;
+}
+.share-buttons:hover {
+    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
+}
+
+.mail-icon {
+    color: red;
+}
+.whatsapp-icon {
+    color: rgb(141, 235, 1);
+}
+.telegram-icon {
+    color: #0088cc;
+}
+.copy-icon {
+    color: rgb(236, 225, 225);
+}
+@media screen and (min-width: 768px) {
+    .share-buttons {
+        font-size: 2.5rem;
+    }
+    .share-info {
+        font-size: 0.9rem;
+    }
+}

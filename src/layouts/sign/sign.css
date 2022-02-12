@@ -1,0 +1,65 @@
+.login-image {
+    height: 12rem;
+    width: 18rem;
+}
+.operation-button {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-top: 0.1rem;
+    border: solid;
+    border-color: transparent;
+    background-color: #04e9ae;
+    color: #212b44;
+    font-weight: 600;
+    display: inline;
+    border-radius: 1.5rem;
+    border-width: 0.15rem;
+    border-radius: 0.3rem;
+    -webkit-border-radius: 0.3rem;
+    -moz-border-radius: 0.3rem;
+    -ms-border-radius: 0.3rem;
+    -o-border-radius: 0.3rem;
+}
+.operation-button:hover {
+    cursor: pointer;
+    color: #ffffff;
+    background-color: #344163;
+    border-color: #04e9ae;
+}
+
+.register-prompt {
+    background-color: transparent;
+    border: 0px;
+    color: white;
+    margin-top: 1rem;
+}
+
+.register-prompt:hover {
+    text-decoration: underline;
+    color: #04e9ae;
+}
+
+.error-text {
+    margin-top: 1rem;
+    color: red;
+    font-size: small;
+}
+
+.auth-title {
+    color: #04e9ae;
+    font-size: 1.5rem;
+}
+.user-name {
+    color: #04e9ae;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+.user-para {
+    color: white;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+.authorized {
+    height: 12rem;
+    width: 12rem;
+}

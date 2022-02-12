@@ -1,66 +1,101 @@
 .navbar {
-  font-family: "Poppins";
-  background-color: #212b44;
+    font-family: "Poppins";
+    background-color: #212b44;
 }
 .text-color {
-  color: white !important;
-  text-decoration: none;
-  margin-left: 1rem;
+    color: white !important;
+    text-decoration: none;
+    margin-left: 1rem;
 }
 .hamburger {
-  background-color: white;
-  color: #212b44;
-  border-radius: 2rem;
-  transform: scale(0.75);
-  -webkit-transform: scale(0.75);
-  -moz-transform: scale(0.75);
-  -ms-transform: scale(0.75);
-  -o-transform: scale(0.75);
-  -webkit-border-radius: 2rem;
-  -moz-border-radius: 2rem;
-  -ms-border-radius: 2rem;
-  -o-border-radius: 2rem;
+    background-color: white;
+    color: #212b44;
+    border-radius: 2rem;
+    transform: scale(0.75);
+    -webkit-transform: scale(0.75);
+    -moz-transform: scale(0.75);
+    -ms-transform: scale(0.75);
+    -o-transform: scale(0.75);
+    -webkit-border-radius: 2rem;
+    -moz-border-radius: 2rem;
+    -ms-border-radius: 2rem;
+    -o-border-radius: 2rem;
 }
 
 .app-title {
-  color: white !important;
-  font-size: 2rem;
+    color: white !important;
+    font-size: 2rem;
 }
 .title-first {
-  font-weight: 800;
+    font-weight: 800;
 }
 .title-second {
-  color: #04e9ae;
+    color: #04e9ae;
 }
 .nav-button {
-  margin: 0 auto;
-  display: inline;
-  background-color: transparent;
-  border: 1px solid transparent;
-  color: #ffffff;
-  font-weight: 500;
-  border-radius: 1.5rem;
-  border-width: 0.15rem;
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  -webkit-border-radius: 1.5rem;
-  -moz-border-radius: 1.5rem;
-  -ms-border-radius: 1.5rem;
-  -o-border-radius: 1.5rem;
-  -ms-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
+    margin: 0 auto;
+    display: inline;
+    background-color: transparent;
+    border: 1px solid transparent;
+    color: #ffffff;
+    font-weight: 500;
+    border-radius: 1.5rem;
+    border-width: 0.15rem;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    -webkit-border-radius: 1.5rem;
+    -moz-border-radius: 1.5rem;
+    -ms-border-radius: 1.5rem;
+    -o-border-radius: 1.5rem;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
 }
 
 .nav-button-highlight {
-  background-color: #344163;
+    background-color: #344163;
 }
 .nav-button:hover {
-  color: #ffffff;
-  border-color: #04e9ae;
+    color: #ffffff;
+    border-color: #04e9ae;
 }
 @media screen and (max-width: 768px) {
-  .nav-button {
-    margin-top: 0.5rem;
-  }
+    .nav-button {
+        margin-top: 0.5rem;
+    }
+    .login-button {
+        margin-top: 0.5rem;
+    }
+}
+.login-button {
+    margin-left: 5rem;
+    display: inline;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border: solid;
+    border-color: transparent;
+    background-color: #04e9ae;
+    color: #212b44;
+    display: inline;
+    font-weight: 800;
+    border-radius: 1.5rem;
+    border-width: 0.15rem;
+    border-radius: 0.3rem;
+    -webkit-border-radius: 0.3rem;
+    -moz-border-radius: 0.3rem;
+    -ms-border-radius: 0.3rem;
+    -o-border-radius: 0.3rem;
+}
+.login-button:hover {
+    color: #ffffff;
+    background-color: #344163;
+    border-color: #04e9ae;
+}
+@media screen and (max-width: 768px) {
+    .nav-button {
+        margin-top: 0.5rem;
+    }
+    .login-button {
+        margin-top: 0.5rem;
+    }
 }
