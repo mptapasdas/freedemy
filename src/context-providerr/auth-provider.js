@@ -39,7 +39,7 @@ const AuthProvider = ({ children }) => {
         setErrorText("");
         setAuthLoading(true);
         try {
-            const { data } = await axios.post(`/auth/login`, {
+            let { data } = await axios.post(`/auth/login`, {
                 email,
                 password,
             });
@@ -51,6 +51,10 @@ const AuthProvider = ({ children }) => {
             setIsLoggedIn(true);
             setErrorText("Login Successful");
             setAuthLoading(false);
+
+            //update favourite courses
+            const response = await axios.get("/favourites");
+            setFavouriteCourseArray(response.data.favouriteCourses);
         } catch (error) {
             setIsLoggedIn(false);
             setErrorText(error.response.data.msg);
@@ -123,6 +127,7 @@ const AuthProvider = ({ children }) => {
         setErrorText("");
         localStorage.removeItem("user");
         setIsLoggedIn(false);
+        setFavouriteCourseArray([]);
         setUser({});
     };
 
@@ -149,7 +154,8 @@ const AuthProvider = ({ children }) => {
                 favouriteCourseArray,
                 setFavouriteCourseArray,
                 favouriteCoursesLoading,
-                setFavouriteCoursesLoading
+                setFavouriteCoursesLoading,
+                verify,
             }}>
             {children}
         </AuthContext.Provider>
