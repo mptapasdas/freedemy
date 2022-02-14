@@ -1,46 +1,104 @@
-import React from "react";
+import React, { useState } from "react";
 
-import { useState } from "react";
+import axios from "axios";
+import "../../axios";
 
 import { useGlobalContext } from "../../context-providerr/context-provider";
+import { useAuthContext } from "../../context-providerr/auth-provider";
 
 import "./card.css";
 
 const Card = (props) => {
+    const { code, imageurl, tags, title, instructor, description, courseurl } =
+        props;
+
     const {
-        code,
-        imageurl,
-        tags,
-        title,
-        instructor,
-        description,
-        courseurl,
-        onTagClick,
-    } = props;
+        favouriteCourseArray,
+        setFavouriteCourseArray,
+        isLoggedIn,
+        setFavouriteCoursesLoading,
+    } = useAuthContext();
 
     const {
         openShareModal,
-        shareCourse,
-        handleLike,
-        handleUnlike,
-        isFavourite,
+        setAllCoursesLoading,
+        setCourseArray,
+        page,
+        setSharingCourse,
     } = useGlobalContext();
 
-    const [liked, setLiked] = useState(isFavourite(code) ? true : false);
+    const tagClickHandler = async (searchValue) => {
+        let searchQuery = searchValue.toLowerCase();
+        if (searchQuery) {
+            setAllCoursesLoading(true);
+            try {
+                const { data } = await axios.get(
+                    `/courses/search?query=${searchQuery}`
+                );
+                setCourseArray(data.filteredCourses);
+                setAllCoursesLoading(false);
+            } catch (error) {
+                setAllCoursesLoading(false);
+                console.log(error);
+            }
+        }
+    };
 
-    const likeHandler = (code) => {
-        handleLike(code);
+    const isFavourite = () => {
+        for (let eachCourse of favouriteCourseArray) {
+            if (eachCourse.code === code) return true;
+        }
+        return false;
+    };
+
+    const [liked, setLiked] = useState(isFavourite() ? true : false);
+
+    const handleLike = async () => {
+        setFavouriteCoursesLoading(true);
+        try {
+            await axios.post(`/favourites`, props);
+        } catch (error) {
+            console.log(error.response.data.msg);
+        }
+        try {
+            const { data } = await axios.get("/favourites");
+            if (data.authorized === "true") {
+                setFavouriteCourseArray(data.favouriteCourses);
+                setFavouriteCoursesLoading(false);
+            }
+        } catch (error) {
+            console.log(error.response.data);
+            setFavouriteCoursesLoading(false);
+        }
+    };
+
+    const handleUnlike = async () => {
+        setFavouriteCoursesLoading(true);
+        try {
+            await axios.delete(`/favourites/${code}`);
+            const { data } = await axios.get("/favourites");
+            setFavouriteCourseArray(data.favouriteCourses);
+            console.log(favouriteCourseArray);
+            setFavouriteCoursesLoading(false);
+        } catch (error) {
+            setFavouriteCoursesLoading(false);
+            console.log(error.response);
+        }
+    };
+
+    const likeHandler = () => {
+        if (page !== "favourite" && isLoggedIn) handleLike();
         setLiked(true);
     };
 
-    const unlikeHandler = (code) => {
-        handleUnlike(code);
+    const unlikeHandler = () => {
+        if (page !== "favourite" && isLoggedIn) handleUnlike();
         setLiked(false);
     };
 
-    const shareHandler = (code) => {
+    const shareHandler = () => {
         openShareModal();
-        shareCourse(code);
+        setSharingCourse(props);
     };
     return (
         <div className='col-12 col-md-6 col-lg-4 d-flex justify-content-center'>
@@ -54,7 +112,7 @@ const Card = (props) => {
                                 <button
                                     key={eachTag + code}
                                     className='btn btn-secondary tag-element-text'
-                                    onClick={() => onTagClick(eachTag)}>
+                                    onClick={() => tagClickHandler(eachTag)}>
                                     {eachTag}
                                 </button>
                             );
@@ -78,7 +136,7 @@ const Card = (props) => {
                         <div className='share-container'>
                             <button
                                 className='btn btn-secondary share-button'
-                                onClick={() => shareHandler(code)}>
+                                onClick={() => shareHandler()}>
                                 Share
                                 <i className='fas fa-share-alt ml-1'></i>
                             </button>
@@ -86,11 +144,11 @@ const Card = (props) => {
                         {liked ? (
                             <i
                                 className='fa fa-star star-liked star-hover'
-                                onClick={() => unlikeHandler(code)}></i>
+                                onClick={() => unlikeHandler()}></i>
                         ) : (
                             <i
                                 className='far fa-star star-default star-hover'
-                                onClick={() => likeHandler(code)}></i>
+                                onClick={() => likeHandler()}></i>
                         )}
                     </div>
                 </div>

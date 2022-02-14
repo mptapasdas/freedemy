@@ -1,16 +1,22 @@
 import React, { useState, useContext } from "react";
-
-import {
-    getFavouriteCourseCodeListFromLocalStorage,
-    removeElementFromArray,
-} from "../functions/functions";
+// import { useAuthContext } from "./auth-provider";
 
 const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
+    //share modal
     const [isShareModalOpen, setIsShareModalOpen] = useState(false);
+    const [sharingCourse, setSharingCourse] = useState(0);
+
+    //login/logout modal
     const [isSignModalOpen, setIsSignModalOpen] = useState(false);
-    const [modalCourseCode, setmodalCourseCode] = useState(0);
+
+    //courses
+    const [courseArray, setCourseArray] = useState([]);
+
+    const [allCoursesLoading, setAllCoursesLoading] = useState(true);
+
+    const [page, setPage] = useState("home");
 
     const openShareModal = () => {
         setIsShareModalOpen(true);
@@ -28,35 +34,6 @@ const AppProvider = ({ children }) => {
         setIsSignModalOpen(false);
     };
 
-    const shareCourse = (code) => {
-        setmodalCourseCode(code);
-    };
-
-    const isFavourite = (code) => {
-        let favouriteCourseCodeList =
-            getFavouriteCourseCodeListFromLocalStorage();
-        const index = favouriteCourseCodeList.indexOf(code);
-        return index > -1;
-    };
-    const handleLike = (code) => {
-        let favouriteCourseCodeList =
-            getFavouriteCourseCodeListFromLocalStorage();
-        favouriteCourseCodeList.push(code);
-        favouriteCourseCodeList = [...new Set(favouriteCourseCodeList)];
-        localStorage.setItem(
-            "favouriteCourseCodes",
-            JSON.stringify(favouriteCourseCodeList)
-        );
-    };
-    const handleUnlike = (code) => {
-        let favouriteCourseCodeList =
-            getFavouriteCourseCodeListFromLocalStorage();
-        removeElementFromArray(code, favouriteCourseCodeList);
-        localStorage.setItem(
-            "favouriteCourseCodes",
-            JSON.stringify(favouriteCourseCodeList)
-        );
-    };
     return (
         <AppContext.Provider
             value={{
@@ -66,11 +43,14 @@ const AppProvider = ({ children }) => {
                 isSignModalOpen,
                 openSignModal,
                 closeSignModal,
-                modalCourseCode,
-                shareCourse,
-                handleLike,
-                handleUnlike,
-                isFavourite,
+                sharingCourse,
+                setSharingCourse,
+                courseArray,
+                setCourseArray,
+                allCoursesLoading,
+                setAllCoursesLoading,
+                page,
+                setPage,
             }}>
             {children}
         </AppContext.Provider>

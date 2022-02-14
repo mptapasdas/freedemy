@@ -11,8 +11,11 @@ const AuthProvider = ({ children }) => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [operation, setOperation] = useState("login");
 
+    const [favouriteCourseArray, setFavouriteCourseArray] = useState([]);
+    const [favouriteCoursesLoading, setFavouriteCoursesLoading] =
+        useState(false);
+
     const isEmailValid = (email) => {
-        console.log(email);
         return /\w+@\w+\.\w+/.test(email);
     };
     const isNameValid = (name) => {
@@ -49,7 +52,6 @@ const AuthProvider = ({ children }) => {
             setErrorText("Login Successful");
             setAuthLoading(false);
         } catch (error) {
-            setUser({});
             setIsLoggedIn(false);
             setErrorText(error.response.data.msg);
             setAuthLoading(false);
@@ -86,7 +88,6 @@ const AuthProvider = ({ children }) => {
             setIsLoggedIn(true);
             setAuthLoading(false);
         } catch (error) {
-            setUser({});
             setErrorText(JSON.stringify(error.response.data.msg));
             setAuthLoading(false);
         }
@@ -96,22 +97,25 @@ const AuthProvider = ({ children }) => {
         setErrorText("");
         const localUser = localStorage.getItem("user");
         setAuthLoading(true);
+        setFavouriteCoursesLoading(true);
         try {
             const { data } = await axios.get("/favourites");
             if (data.authorized === "true") {
-                console.log(JSON.parse(localUser));
+                setFavouriteCourseArray(data.favouriteCourses);
                 setErrorText("verification successful");
                 setUser(JSON.parse(localUser));
                 setIsLoggedIn(true);
             } else {
                 setIsLoggedIn(false);
                 setErrorText("verification unsuccessful");
-                setUser({});
             }
             setAuthLoading(false);
+            setFavouriteCoursesLoading(false);
         } catch (error) {
             setIsLoggedIn(false);
             setAuthLoading(false);
+            setFavouriteCoursesLoading(false);
+
             setErrorText(JSON.stringify(error.msg));
         }
     };
@@ -126,8 +130,6 @@ const AuthProvider = ({ children }) => {
         const user = localStorage.getItem("user");
         if (user) {
             verify();
-        } else {
-            setUser({});
         }
     }, []);
 
@@ -144,6 +146,10 @@ const AuthProvider = ({ children }) => {
                 isLoggedIn,
                 operation,
                 setOperation,
+                favouriteCourseArray,
+                setFavouriteCourseArray,
+                favouriteCoursesLoading,
+                setFavouriteCoursesLoading
             }}>
             {children}
         </AuthContext.Provider>

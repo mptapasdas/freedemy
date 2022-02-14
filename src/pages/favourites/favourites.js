@@ -1,50 +1,54 @@
 import React, { useEffect } from "react";
 import Card from "../../components/card/card";
-
-import { getFavouriteCourseCodeListFromLocalStorage } from "../../functions/functions";
+import CustomLoading from "../../components/custom-loading/CustomLoading";
+import { useAuthContext } from "../../context-providerr/auth-provider";
 
 import "./favourites.css";
 
-let courseList = require("../../courselist.json");
-
 const Favourites = () => {
-  useEffect(() => {
-    document.title = "Freedemy | Favourites";
-  });
-  let favouriteCourseCodeList = getFavouriteCourseCodeListFromLocalStorage();
-  favouriteCourseCodeList.reverse();
+    useEffect(() => {
+        document.title = "Freedemy | Favourites";
+    });
 
-  const tagClickHandler = (currentTag) => {
-    return false;
-  };
-  return (
-    <div className='h-100 favourite-container'>
-      <div className='bg-container container-fluid'>
-        <div className='row row-containers'>
-          <h1 className='col-12 favourite-course-description'>
-            {favouriteCourseCodeList.length === 0
-              ? `${"No courses are marked as favourite. Try adding some"}`
-              : `${"Here Are Your Favourite Courses"}`}
-          </h1>
-          {favouriteCourseCodeList.map((i) => {
-            return (
-              <Card
-                key={courseList[i].code}
-                code={courseList[i].code}
-                imageurl={courseList[i].imageurl}
-                tags={courseList[i].tags}
-                title={courseList[i].title}
-                instructor={courseList[i].instructor}
-                description={courseList[i].description}
-                courseurl={courseList[i].courseurl}
-                onTagClick={tagClickHandler}
-              />
-            );
-          })}
+    const { favouriteCourseArray, favouriteCoursesLoading, isLoggedIn } =
+        useAuthContext();
+
+    return (
+        <div className='h-100 favourite-container'>
+            <div className='bg-container container-fluid'>
+                <div className='row row-containers'>
+                    {isLoggedIn && (
+                        <h1 className='col-12 favourite-course-description'>
+                            {favouriteCourseArray.length === 0
+                                ? `${"No courses are marked as favourite. Try adding some"}`
+                                : `${"Here Are Your Favourite Courses"}`}
+                        </h1>
+                    )}
+                    {!isLoggedIn && (
+                        <h1 className='col-12 favourite-course-description'>
+                            Please login/register to access your favourite
+                            courses
+                        </h1>
+                    )}
+                    <CustomLoading isLoading={favouriteCoursesLoading} />
+                    {favouriteCourseArray.map((eachCourse) => {
+                        return (
+                            <Card
+                                key={eachCourse.code}
+                                code={eachCourse.code}
+                                imageurl={eachCourse.imageurl}
+                                tags={eachCourse.tags}
+                                title={eachCourse.title}
+                                instructor={eachCourse.instructor}
+                                description={eachCourse.description}
+                                courseurl={eachCourse.courseurl}
+                            />
+                        );
+                    })}
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  );
+    );
 };
 
 export default Favourites;

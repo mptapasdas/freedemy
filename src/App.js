@@ -10,7 +10,7 @@ import Sign from "./layouts/sign/sign";
 import Share from "./layouts/share/share";
 
 import NavBar from "./components/navbar/NavBar";
-import Footer from "./components/footer/Footer";
+import Footer from "./layouts/footer/Footer";
 import Scroll from "./components/scroll-to-top/scroll";
 
 import "./App.css";

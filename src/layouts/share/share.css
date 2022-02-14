@@ -9,6 +9,12 @@
     cursor: pointer;
 }
 
+.sharing-title {
+    font-weight: 600;
+    font-style: italic;
+    color: #04e9ae;
+}
+
 .share-buttons {
     background-color: transparent;
     text-decoration: none;

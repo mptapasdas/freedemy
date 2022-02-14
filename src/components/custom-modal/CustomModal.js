@@ -9,8 +9,10 @@ const CustomModal = (props) => {
             className={`${
                 isModalOpen ? "modal-overlay show-modal" : "modal-overlay"
             }`}>
-            <div className='modal-container p-md-1 p-lg-3 mt-3'>
-                <button className='close-modal-btn' onClick={closeModal}>
+            <div className='modal-container p-md-3 p-lg-3 mt-5'>
+                <button
+                    className='close-modal-btn p-1 d-flex flex-row justify-content-center'
+                    onClick={closeModal}>
                     <i className='fas fa-times-circle'></i>
                 </button>
                 {children}

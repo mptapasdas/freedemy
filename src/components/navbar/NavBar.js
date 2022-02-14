@@ -6,7 +6,6 @@ import { useAuthContext } from "../../context-providerr/auth-provider";
 import "./NavBar.css";
 
 const NavBar = () => {
-    const [page, setPage] = useState("home");
     const [isExpanded, setIsExpanded] = useState(false);
     const changePage = (currentPage) => {
         setIsExpanded(!!isExpanded);
@@ -16,7 +15,7 @@ const NavBar = () => {
         setIsExpanded(!!isExpanded);
         openSignModal();
     };
-    const { openSignModal } = useGlobalContext();
+    const { openSignModal, page, setPage } = useGlobalContext();
     const { isLoggedIn, user } = useAuthContext();
     return (
         <Navbar
@@ -99,13 +98,13 @@ const NavBar = () => {
 
                         {isLoggedIn ? (
                             <button
-                                className='login-button col-6 col-lg-3'
+                                className='login-button col-6 col-lg-3 mr-md-3'
                                 onClick={() => handleAuthButtonClick()}>
                                 {user.name}
                             </button>
                         ) : (
                             <button
-                                className='login-button col-6 col-lg-3'
+                                className='login-button col-6 col-md-2 col-lg-3 mr-md-3'
                                 onClick={() => handleAuthButtonClick()}>
                                 Login
                             </button>

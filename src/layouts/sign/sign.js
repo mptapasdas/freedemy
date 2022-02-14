@@ -11,8 +11,7 @@ import "./sign.css";
 
 const Sign = () => {
     const { isSignModalOpen, closeSignModal } = useGlobalContext();
-    const { user, isLoggedIn } = useAuthContext();
-    console.log(user, "triggered from sign");
+    const { isLoggedIn } = useAuthContext();
 
     return (
         <CustomModal isModalOpen={isSignModalOpen} closeModal={closeSignModal}>

@@ -6,17 +6,17 @@ import { useGlobalContext } from "../../context-providerr/context-provider";
 
 import "./share.css";
 
-let courseList = require("../../courselist.json");
 const Share = () => {
-    const { modalCourseCode, isShareModalOpen, closeShareModal } =
+    const { isShareModalOpen, closeShareModal, sharingCourse } =
         useGlobalContext();
+    const { title, instructor, courseurl } = sharingCourse;
     let shareMessage =
         " Hey checkout the course '" +
-        courseList[modalCourseCode].title +
+        title +
         "' by : " +
-        courseList[modalCourseCode].instructor +
+        instructor +
         " \n" +
-        courseList[modalCourseCode].courseurl;
+        courseurl;
 
     const shareViaMail = () => {
         let url = `mailto:?&subject=Check This Course &body=${shareMessage}`;
@@ -27,11 +27,11 @@ const Share = () => {
         window.open(url, "_blank");
     };
     const shareViaTelegram = () => {
-        let url = `https://telegram.me/share/url?url=${courseList[modalCourseCode].courseurl}&text=${shareMessage}`;
+        let url = `https://telegram.me/share/url?url=${courseurl}&text=${shareMessage}`;
         window.open(url, "_blank");
     };
     const copyShareLink = () => {
-        navigator.clipboard.writeText(courseList[modalCourseCode].courseurl);
+        navigator.clipboard.writeText(courseurl);
     };
 
     return (
@@ -39,7 +39,11 @@ const Share = () => {
             isModalOpen={isShareModalOpen}
             closeModal={closeShareModal}>
             <div className='share-items-container'>
-                <p className='share-info'>{shareMessage}</p>
+                <p className='share-info'>
+                    Hey checkout the course{" "}
+                    <span className='sharing-title'>{title}</span> by :
+                    {instructor} <br></br> {courseurl}
+                </p>
                 <button
                     type='button'
                     className='share-buttons'
