@@ -12,7 +12,7 @@ const SearchBar = () => {
 
     const searchHandler = async () => {
         let searchQuery = searchValue.trim().toLowerCase();
-        if (searchValue) {
+        if (searchQuery.length > 0) {
             setAllCoursesLoading(true);
             try {
                 const { data } = await axios.get(
