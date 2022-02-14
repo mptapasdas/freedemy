@@ -7,15 +7,15 @@
     background: rgba(0, 0, 0, 0.8);
     display: grid;
     place-items: center;
-    transition: all 400ms ease-in-out;
+    transition: all 100ms ease-in;
     visibility: hidden;
     opacity: 0;
     z-index: -1;
     color: white;
-    -webkit-transition: all 400ms ease-in-out;
-    -moz-transition: all 400ms ease-in-out;
-    -ms-transition: all 400ms ease-in-out;
-    -o-transition: all 400ms ease-in-out;
+    -webkit-transition: all 100ms ease-in;
+    -moz-transition: all 100ms ease-in;
+    -ms-transition: all 100ms ease-in;
+    -o-transition: all 100ms ease-in;
 }
 /* OPEN/CLOSE MODAL */
 .show-modal {

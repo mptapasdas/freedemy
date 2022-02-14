@@ -1,6 +1,6 @@
 import React from "react";
 import TextField from "@mui/material/TextField";
-import "./CustomInput.css";
+// import "./CustomInput.css";
 
 const CustomInput = (props) => {
     const { value, hasError, label, type, errorText, onChangeHandler } = props;
@@ -13,7 +13,7 @@ const CustomInput = (props) => {
                     fontSize: "0.8rem",
                 },
             }}
-            className='input-text mt-3'
+            className='mt-3'
             type={type || "text"}
             value={value}
             error={hasError}

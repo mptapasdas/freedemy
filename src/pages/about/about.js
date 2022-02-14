@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "./about.css";
-import whyReadImage from "../../assets/why-read.png";
+import whyReadImage from "../../assets/about.png";
 
 const About = () => {
   useEffect(() => {
