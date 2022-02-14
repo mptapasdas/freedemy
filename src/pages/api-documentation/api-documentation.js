@@ -4,7 +4,7 @@ import "./api-documentation.css";
 
 const ApiDoc = () => {
     useEffect(() => {
-        document.title = "Freedemy | Home";
+        document.title = "Freedemy | API";
     });
     return (
         <div className='h-100'>

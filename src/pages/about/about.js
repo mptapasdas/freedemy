@@ -2,18 +2,6 @@ import React, { useEffect } from "react";
 import "./about.css";
 import whyReadImage from "../../assets/why-read.png";
 
-// let sampleCourse = {
-//   code: 0,
-//   title: "Flutter Tutorial for Beginners",
-//   instructor: "The Net Ninja",
-//   description:
-//     "Hey gang, in this Flutter tutorial for beginners, I'll give you a quick introduction to the course and Flutter itself, a preview of what we'll be building & finally show you how to install Flutter on your computer.",
-//   imageurl: "https://img.youtube.com/vi/1ukSR1GRtMU/maxresdefault.jpg",
-//   courseurl:
-//     "https://www.youtube.com/playlist?list=PL4cUxeGkcC9jLYyp2Aoh6hcWuxFDX6PBJ",
-//   tags: ["flutter", "dart"],
-// };
-
 const About = () => {
   useEffect(() => {
     document.title = "Freedemy | About";

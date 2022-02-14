@@ -3,6 +3,7 @@
   display: flex;
   flex-direction: column;
   padding-top: 2rem;
+  min-height: 100vh;
 }
 .about-content {
   /* height: 100vh; */
