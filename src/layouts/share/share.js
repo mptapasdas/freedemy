@@ -41,8 +41,8 @@ const Share = () => {
             <div className='share-items-container'>
                 <p className='share-info'>
                     Hey checkout the course{" "}
-                    <span className='sharing-title'>{title}</span> by :
-                    {instructor} <br></br> {courseurl}
+                    <span className='sharing-title'>{title}</span> by :{" "}
+                    {instructor} {'\n'} <a href={courseurl}>{courseurl}</a>
                 </p>
                 <button
                     type='button'
