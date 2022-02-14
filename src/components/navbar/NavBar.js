@@ -96,7 +96,7 @@ const NavBar = () => {
 
                         <Link
                             to='/api'
-                            className='d-none d-md-block text-color text-decoration-none'
+                            className='d-none d-md-block text-color text-decoration-none mr-5'
                             onClick={() => changePage("api")}>
                             <button
                                 className={`${
@@ -107,20 +107,11 @@ const NavBar = () => {
                                 API
                             </button>
                         </Link>
-
-                        {isLoggedIn ? (
-                            <button
-                                className='login-button col-6 col-lg-3 mr-md-3'
-                                onClick={() => handleAuthButtonClick()}>
-                                {user.name}
-                            </button>
-                        ) : (
-                            <button
-                                className='login-button col-6 col-md-2 col-lg-3 mr-md-3'
-                                onClick={() => handleAuthButtonClick()}>
-                                Login
-                            </button>
-                        )}
+                        <button
+                            className='login-button'
+                            onClick={() => handleAuthButtonClick()}>
+                            {isLoggedIn ? `${user.name}` : 'Login'} 
+                        </button>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
