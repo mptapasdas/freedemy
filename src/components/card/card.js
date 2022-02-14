@@ -25,6 +25,7 @@ const Card = (props) => {
         setCourseArray,
         page,
         setSharingCourse,
+        openSignModal
     } = useGlobalContext();
 
     const tagClickHandler = async (searchValue) => {
@@ -87,8 +88,11 @@ const Card = (props) => {
     };
 
     const likeHandler = () => {
-        if (page !== "favourite" && isLoggedIn) handleLike();
-        setLiked(true);
+        if (page !== "favourite" && isLoggedIn){ 
+            setLiked(true);
+            handleLike();
+        }
+        if(!isLoggedIn) openSignModal()
     };
 
     const unlikeHandler = () => {
