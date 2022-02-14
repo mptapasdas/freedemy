@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useLocation } from "react-router-dom";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import { useGlobalContext } from "../../context-providerr/context-provider";
@@ -15,8 +16,19 @@ const NavBar = () => {
         setIsExpanded(!!isExpanded);
         openSignModal();
     };
+
     const { openSignModal, page, setPage } = useGlobalContext();
     const { isLoggedIn, user } = useAuthContext();
+
+    const path = useLocation();
+    const pathname = path.pathname.substring(1, path.pathname.length);
+    console.log(pathname);
+    if (!pathname) {
+        setPage("home");
+    } else {
+        setPage(pathname);
+    }
+
     return (
         <Navbar
             collapseOnSelect
