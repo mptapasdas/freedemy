@@ -22,7 +22,6 @@ const NavBar = () => {
 
     const path = useLocation();
     const pathname = path.pathname.substring(1, path.pathname.length);
-    console.log(pathname);
     if (!pathname) {
         setPage("home");
     } else {
