@@ -9,11 +9,11 @@ import "./NavBar.css";
 const NavBar = () => {
     const [isExpanded, setIsExpanded] = useState(false);
     const changePage = (currentPage) => {
-        setIsExpanded(!!isExpanded);
+        setIsExpanded(!isExpanded);
         setPage(currentPage);
     };
     const handleAuthButtonClick = () => {
-        setIsExpanded(!!isExpanded);
+        setIsExpanded(!isExpanded);
         openSignModal();
     };
 
@@ -46,7 +46,7 @@ const NavBar = () => {
                     </Navbar.Brand>
                 </Link>
                 <Navbar.Toggle
-                    onClick={() => setIsExpanded()}
+                    onClick={() => setIsExpanded(!isExpanded)}
                     aria-controls='responsive-navbar-nav'
                     className='hamburger ml-auto'
                 />
