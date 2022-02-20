@@ -79,7 +79,6 @@ const Card = (props) => {
             await axios.delete(`/favourites/${code}`);
             const { data } = await axios.get("/favourites");
             setFavouriteCourseArray(data.favouriteCourses);
-            console.log(favouriteCourseArray);
             setFavouriteCoursesLoading(false);
         } catch (error) {
             setFavouriteCoursesLoading(false);
