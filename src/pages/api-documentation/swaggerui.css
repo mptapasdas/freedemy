@@ -132,6 +132,11 @@ svg {
     -o-border-radius: 1rem;
 }
 
+.btn.execute{
+    background-color:#344163 !important;
+    border-color: transparent !important;
+}
+
 .svg-assets {
     display: none;
 }
