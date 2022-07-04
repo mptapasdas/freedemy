@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 import axios from "axios";
 import "../../axios";
 
-import { useGlobalContext } from "../../context-providerr/context-provider";
 import { useAuthContext } from "../../context-providerr/auth-provider";
+import { useGlobalContext } from "../../context-providerr/context-provider";
 
 import "./card.css";
 
@@ -87,11 +87,11 @@ const Card = (props) => {
     };
 
     const likeHandler = () => {
-        if (page !== "favourite" && isLoggedIn){ 
+        if (page !== "favourite" && isLoggedIn) {
             setLiked(true);
             handleLike();
         }
-        if(!isLoggedIn) openSignModal()
+        if (!isLoggedIn) openSignModal()
     };
 
     const unlikeHandler = () => {
@@ -104,7 +104,7 @@ const Card = (props) => {
         setSharingCourse(props);
     };
     return (
-        <div className='col-12 col-md-6 col-lg-4 d-flex justify-content-center'>
+        <a href={courseurl} target='_blank' rel='noreferrer' className='col-12 col-md-6 col-lg-4 d-flex justify-content-center'>
             <div className='card-container grow'>
                 <img src={imageurl} className='card-image' alt='' />
                 <div className='card-bottom'>
@@ -156,7 +156,7 @@ const Card = (props) => {
                     </div>
                 </div>
             </div>
-        </div>
+        </a>
     );
 };
 
