@@ -103,10 +103,14 @@ const Card = (props) => {
         openShareModal();
         setSharingCourse(props);
     };
+
     return (
-        <a href={courseurl} target='_blank' rel='noreferrer' className='col-12 col-md-6 col-lg-4 d-flex justify-content-center'>
+        <div className='col-12 col-md-6 col-lg-4 d-flex justify-content-center'>
             <div className='card-container grow'>
-                <img src={imageurl} className='card-image' alt='' />
+                {/* blacnk anchor tag  */}
+                <a href={courseurl} target='_blank' rel='noopener noreferrer'>
+                    <img src={imageurl} className='card-image' alt='' />
+                </a>
                 <div className='card-bottom'>
                     {/* tag elements */}
                     <div className='tag-element-container'>
@@ -122,7 +126,11 @@ const Card = (props) => {
                         })}
                     </div>
                     {/* title and author */}
-                    <h1 className='card-title'>{title}</h1>
+                    {/* <h1 className='card-title'>{title}</h1> */}
+                    {/* anchor tag */}
+                    <a href={courseurl} target='_blank' rel='noopener noreferrer'>
+                        <h1 className='card-title'>{title}</h1>
+                    </a>
                     <p className='card-author'>
                         <span className='card-author-bytext'>by </span>
                         {instructor}
@@ -156,7 +164,7 @@ const Card = (props) => {
                     </div>
                 </div>
             </div>
-        </a>
+        </div>
     );
 };
 
