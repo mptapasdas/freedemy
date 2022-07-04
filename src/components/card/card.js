@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 import axios from "axios";
 import "../../axios";
 
-import { useGlobalContext } from "../../context-providerr/context-provider";
 import { useAuthContext } from "../../context-providerr/auth-provider";
+import { useGlobalContext } from "../../context-providerr/context-provider";
 
 import "./card.css";
 
@@ -87,11 +87,11 @@ const Card = (props) => {
     };
 
     const likeHandler = () => {
-        if (page !== "favourite" && isLoggedIn){ 
+        if (page !== "favourite" && isLoggedIn) {
             setLiked(true);
             handleLike();
         }
-        if(!isLoggedIn) openSignModal()
+        if (!isLoggedIn) openSignModal()
     };
 
     const unlikeHandler = () => {
@@ -103,10 +103,14 @@ const Card = (props) => {
         openShareModal();
         setSharingCourse(props);
     };
+
     return (
         <div className='col-12 col-md-6 col-lg-4 d-flex justify-content-center'>
             <div className='card-container grow'>
-                <img src={imageurl} className='card-image' alt='' />
+                {/* blacnk anchor tag  */}
+                <a href={courseurl} target='_blank' rel='noopener noreferrer'>
+                    <img src={imageurl} className='card-image' alt='' />
+                </a>
                 <div className='card-bottom'>
                     {/* tag elements */}
                     <div className='tag-element-container'>
@@ -122,7 +126,11 @@ const Card = (props) => {
                         })}
                     </div>
                     {/* title and author */}
-                    <h1 className='card-title'>{title}</h1>
+                    {/* <h1 className='card-title'>{title}</h1> */}
+                    {/* anchor tag */}
+                    <a href={courseurl} target='_blank' rel='noopener noreferrer'>
+                        <h1 className='card-title'>{title}</h1>
+                    </a>
                     <p className='card-author'>
                         <span className='card-author-bytext'>by </span>
                         {instructor}
