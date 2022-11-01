@@ -36,8 +36,8 @@ SwaggerUI.propTypes = {
     spec: PropTypes.object,
 };
 
-SwaggerUI.defaultProps = {
-    url: `https://freedemy-courses.herokuapp.com/swagger.json`,
+https: SwaggerUI.defaultProps = {
+    url: "https://freedemy.up.railway.app/swagger.json"
 };
 
 export default SwaggerUI;
