@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
-import SwaggerUI from "./swaggerui";
+// import SwaggerUI from "./swaggerui";
+import SWAGGER from "./swagger";
 import "./api-documentation.css";
 
 const ApiDoc = () => {
@@ -9,7 +10,7 @@ const ApiDoc = () => {
     return (
         <div className='h-100'>
             <div className='api-container col-12'>
-                <SwaggerUI />
+                <SWAGGER />
             </div>
         </div>
     );
