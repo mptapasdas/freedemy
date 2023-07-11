@@ -14,5 +14,5 @@
 For API Documentation, bravely navigate to  [here]
 
 [website]: <https://freedemy-test.netlify.app/>
-[here]: <https://freedemy-test.netlify.app/api>
+[here]: <https://freedemy.vercel.app/api>
 [here.]:<https://github.com/mptapasdas/Freedemy-Backend>
