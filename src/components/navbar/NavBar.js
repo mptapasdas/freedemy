@@ -7,18 +7,19 @@ import { useAuthContext } from "../../context-provider/auth-provider";
 import "./NavBar.css";
 
 const NavBar = () => {
-    const [isExpanded, setIsExpanded] = useState(false);
-    const changePage = (currentPage) => {
-        setIsExpanded(!!isExpanded);
-        setPage(currentPage);
-    };
-    const handleAuthButtonClick = () => {
-        setIsExpanded(!!isExpanded);
-        openSignModal();
-    };
-
     const { openSignModal, page, setPage } = useGlobalContext();
     const { isLoggedIn, user } = useAuthContext();
+
+    const [isExpanded, setIsExpanded] = useState(false);
+
+    const changePage = (currentPage) => {
+        setIsExpanded(false);
+        setPage(currentPage);
+    };
+
+    const handleAuthButtonClick = () => {
+        openSignModal();
+    };
 
     const path = useLocation();
     const pathname = path.pathname.substring(1, path.pathname.length);
@@ -38,7 +39,7 @@ const NavBar = () => {
             <Container>
                 <Link
                     to='/'
-                    href='https://fredemy-test.netlify.app'
+                    href='https://fredemy.vercel.app'
                     target='_top'>
                     <Navbar.Brand className='app-title'>
                         <span className='title-first'>Free</span>
@@ -46,7 +47,7 @@ const NavBar = () => {
                     </Navbar.Brand>
                 </Link>
                 <Navbar.Toggle
-                    onClick={() => setIsExpanded()}
+                    onClick={() => setIsExpanded(!isExpanded)}
                     aria-controls='responsive-navbar-nav'
                     className='hamburger ml-auto'
                 />
