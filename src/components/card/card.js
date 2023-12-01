@@ -3,8 +3,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import "../../axios";
 
-import { useGlobalContext } from "../../context-providerr/context-provider";
-import { useAuthContext } from "../../context-providerr/auth-provider";
+import { useGlobalContext } from "../../context-provider/context-provider";
+import { useAuthContext } from "../../context-provider/auth-provider";
 
 import "./card.css";
 

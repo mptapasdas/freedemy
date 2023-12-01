@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
-import { useGlobalContext } from "../../context-providerr/context-provider";
-import { useAuthContext } from "../../context-providerr/auth-provider";
+import { useGlobalContext } from "../../context-provider/context-provider";
+import { useAuthContext } from "../../context-provider/auth-provider";
 import "./NavBar.css";
 
 const NavBar = () => {

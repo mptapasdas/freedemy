@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Card from "../../components/card/card";
 import CustomLoading from "../../components/custom-loading/CustomLoading";
-import { useAuthContext } from "../../context-providerr/auth-provider";
+import { useAuthContext } from "../../context-provider/auth-provider";
 
 import "./favourites.css";
 

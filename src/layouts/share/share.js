@@ -2,7 +2,7 @@ import React from "react";
 
 import CustomModal from "../../components/custom-modal/CustomModal";
 
-import { useGlobalContext } from "../../context-providerr/context-provider";
+import { useGlobalContext } from "../../context-provider/context-provider";
 
 import "./share.css";
 
