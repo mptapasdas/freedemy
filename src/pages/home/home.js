@@ -9,7 +9,7 @@ import Header from "../../layouts/header/header";
 import Scroll from "../../components/scroll-to-top/scroll";
 import CustomLoading from "../../components/custom-loading/CustomLoading";
 
-import { useGlobalContext } from "../../context-providerr/context-provider";
+import { useGlobalContext } from "../../context-provider/context-provider";
 
 let courseLoaded = false;
 

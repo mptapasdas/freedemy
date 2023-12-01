@@ -8,7 +8,6 @@ axios.interceptors.request.use(function (req) {
     if (user) {
         const { token } = JSON.parse(localStorage.getItem("user"));
         req.headers.authorization = `Bearer ${token}`;
-        return req;
     }
     return req;
 });

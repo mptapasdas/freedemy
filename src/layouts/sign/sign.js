@@ -1,7 +1,7 @@
 import React from "react";
 
-import { useGlobalContext } from "../../context-providerr/context-provider";
-import { useAuthContext } from "../../context-providerr/auth-provider";
+import { useGlobalContext } from "../../context-provider/context-provider";
+import { useAuthContext } from "../../context-provider/auth-provider";
 import CustomModal from "../../components/custom-modal/CustomModal";
 
 import Operations from "./operations";

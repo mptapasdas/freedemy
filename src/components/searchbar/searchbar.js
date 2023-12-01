@@ -4,7 +4,7 @@ import "./searchbar.css";
 import axios from "axios";
 import "../../axios";
 
-import { useGlobalContext } from "../../context-providerr/context-provider";
+import { useGlobalContext } from "../../context-provider/context-provider";
 
 const SearchBar = () => {
     const { setAllCoursesLoading, setCourseArray } = useGlobalContext();

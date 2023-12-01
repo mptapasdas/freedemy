@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-import { AppProvider } from "./context-providerr/context-provider";
-import AuthProvider from "./context-providerr/auth-provider";
+import { AppProvider } from "./context-provider/context-provider";
+import AuthProvider from "./context-provider/auth-provider";
 
 import { BrowserRouter } from "react-router-dom/cjs/react-router-dom.min";
 
