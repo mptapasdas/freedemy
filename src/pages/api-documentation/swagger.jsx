@@ -4,6 +4,7 @@ import "swagger-ui-react/swagger-ui.css";
 import "./swaggerui.css"
 
 const SWAGGER = () => (
-    <SwaggerUI url='https://freedemy.azurewebsites.net/swagger.json' />
+    <SwaggerUI url='
+    https://freedemy-service.azurewebsites.net/swagger.json' />
 );
 export default SWAGGER;
