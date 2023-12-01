@@ -1,6 +1,6 @@
 import axios from "axios";
 
-axios.defaults.baseURL = "https://freedemy.azurewebsites.net/api/v1";
+axios.defaults.baseURL = "https://freedemy-service.azurewebsites.net/api/v1";
 
 axios.interceptors.request.use(function (req) {
     const user = localStorage.getItem("user");
