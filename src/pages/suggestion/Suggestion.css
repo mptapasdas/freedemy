@@ -2,7 +2,7 @@
   background-color: #344163;
   color: white;
   padding: 20px;
-  height: 90svh;
+  min-height: 90vh;
 }
 
 .suggestion h3 {
@@ -39,7 +39,7 @@
   border: solid;
   border-color: transparent;
   display: block;
-  margin: 20px auto;
+  margin: 1rem auto;
   background-color: #04e9ae;
   color: #212b44;
   padding: 0.4rem 0.8rem;
