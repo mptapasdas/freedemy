@@ -105,7 +105,7 @@ const Suggestion = () => {
     <div className="suggestion h-100">
       <ToastContainer
         position="top-right"
-        autoClose={100}
+        autoClose={500}
         hideProgressBar={true}
         newestOnTop={false}
         closeOnClick={true}
