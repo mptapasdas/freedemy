@@ -5,6 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import "./Suggestion.css";
 
 const Suggestion = () => {
+  const [email, setEmail] = useState("");
   const [courseName, setCourseName] = useState("");
   const [courseDescription, setCourseDescription] = useState("");
   const [instructor, setInstructor] = useState("");
@@ -14,8 +15,8 @@ const Suggestion = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    // Send the course suggestion to the server using Axios
     const data = {
+      email,
       courseName,
       courseDescription,
       instructor,
@@ -23,24 +24,46 @@ const Suggestion = () => {
       thumbnailUrl,
     };
 
+    if (notValidInput(data)) {
+      return;
+    }
+
     axios
-      .post("/api/courses/suggest", data)
+      .post("/courses/suggest", data)
       .then((response) => {
         if (response.data.success) {
-          toast.success("Your course suggestion has been submitted!");
+          successToast();
+          setEmail("");
           setCourseName("");
           setCourseDescription("");
           setInstructor("");
           setCourseUrl("");
           setThumbnailUrl("");
         } else {
-          alert("There was an error submitting your course suggestion.");
+          errorToast("There was an Error. Please try again.");
         }
       })
       .catch((error) => {
         console.error(error);
-        alert("There was an error submitting your course suggestion.");
+        errorToast("Axios Failure");
       });
+  };
+
+  const notValidInput = (data) => {
+    let email = data.email.toString();
+    if (
+      !RegExp(
+        /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      ).exec(email)
+    ) {
+      toast.error("Please provide valid email");
+      return true;
+    }
+    if (data.courseName == null || data.courseUrl == null) {
+      toast.error("Course name and url are required");
+      return true;
+    }
+    return false;
   };
 
   const successToast = () => {
@@ -68,10 +91,6 @@ const Suggestion = () => {
       theme: "light",
     });
   };
-  const handleSuggesterClick = (event) => {
-    event.preventDefault();
-    errorToast("Not working");
-  };
 
   return (
     <div className="suggestion h-100">
@@ -89,7 +108,16 @@ const Suggestion = () => {
         transition={Slide}
       ></ToastContainer>
       <h3>Suggest a Course</h3>
-      <form onSubmit={handleSuggesterClick}>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="email">Your Email:</label>
+        <input
+          type="text"
+          id="email"
+          value={email}
+          onChange={(event) => setEmail(event.target.value)}
+          required
+        />
+
         <label htmlFor="courseName">Course Name:</label>
         <input
           type="text"
@@ -131,7 +159,7 @@ const Suggestion = () => {
           value={thumbnailUrl}
           onChange={(event) => setThumbnailUrl(event.target.value)}
         />
-        <button className="submit-button" onClick={handleSuggesterClick}>
+        <button className="submit-button" onClick={handleSubmit}>
           Submit
         </button>
       </form>
