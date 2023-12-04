@@ -119,7 +119,9 @@ const Suggestion = () => {
       ></ToastContainer>
       <h3>Suggest a Course</h3>
       <form>
-        <label htmlFor="email">Your Email:</label>
+        <label htmlFor="email">
+          Your Email<span className="required">*</span>:
+        </label>
         <input
           type="text"
           id="email"
@@ -128,7 +130,9 @@ const Suggestion = () => {
           required
         />
 
-        <label htmlFor="courseName">Course Name:</label>
+        <label htmlFor="courseName">
+          Course Name<span className="required">*</span>:
+        </label>
         <input
           type="text"
           id="courseName"
@@ -154,7 +158,9 @@ const Suggestion = () => {
           required
         />
 
-        <label htmlFor="courseUrl">Course URL:</label>
+        <label htmlFor="courseUrl">
+          Course URL<span className="required">*</span>:
+        </label>
         <input
           type="url"
           id="courseUrl"

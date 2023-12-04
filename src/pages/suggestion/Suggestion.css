@@ -53,3 +53,9 @@
   background-color: #b1e5c6;
   cursor: not-allowed;
 }
+
+.required {
+  color: #f12602;
+  font-weight: bold;
+  font-size: 1rem;
+}
