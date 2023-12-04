@@ -18,6 +18,7 @@ const NavBar = () => {
   };
 
   const handleAuthButtonClick = () => {
+    setIsExpanded(false);
     openSignModal();
   };
 
