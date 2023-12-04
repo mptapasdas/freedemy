@@ -48,3 +48,8 @@
   font-weight: bold;
   font-size: 1.2rem;
 }
+
+.submit-button:disabled {
+  background-color: #b1e5c6;
+  cursor: not-allowed;
+}

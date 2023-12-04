@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import { Slide, ToastContainer, toast } from "react-toastify";
+import { isValidUrl, isValidEmail, isEmpty } from "../../utils/StringUtils";
+
 import "react-toastify/dist/ReactToastify.css";
 import "./Suggestion.css";
 
@@ -12,8 +14,54 @@ const Suggestion = () => {
   const [courseUrl, setCourseUrl] = useState("");
   const [thumbnailUrl, setThumbnailUrl] = useState("");
 
+  const [submitDisabled, setSubmitDisabled] = useState(false);
+  const [isRequestPending, setIsRequestPending] = useState(false);
+
+  const successToast = () => {
+    toast.success("Successfully submitted");
+  };
+
+  const errorToast = (errorMessage) => {
+    toast.error(errorMessage);
+  };
+
+  const inProgressToast = useCallback(() => {
+    if (isRequestPending) {
+      toast.warning("Please Wait");
+    }
+  }, [isRequestPending]);
+
+  useEffect(() => {
+    if (isRequestPending) {
+      inProgressToast();
+    }
+  }, [isRequestPending, inProgressToast]);
+
+  const notValidInput = () => {
+    if (!isValidEmail(email)) {
+      toast.error("Please provide a valid email");
+      return true;
+    }
+    if (isEmpty(courseName)) {
+      toast.error("Course name is required");
+      return true;
+    }
+    if (!isValidUrl(courseUrl)) {
+      toast.error("Please provide valid course url");
+      return true;
+    }
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    inProgressToast();
+    setIsRequestPending(true);
+    setSubmitDisabled(true);
+
+    setTimeout(() => {
+      setSubmitDisabled(false);
+    }, 2000);
 
     const data = {
       email,
@@ -24,13 +72,16 @@ const Suggestion = () => {
       thumbnailUrl,
     };
 
-    if (notValidInput(data)) {
+    if (notValidInput()) {
+      setIsRequestPending(false);
       return;
     }
 
     axios
       .post("/courses/suggest", data)
       .then((response) => {
+        setIsRequestPending(false);
+
         if (response.data.success) {
           successToast();
           setEmail("");
@@ -44,71 +95,30 @@ const Suggestion = () => {
         }
       })
       .catch((error) => {
+        setIsRequestPending(false);
         console.error(error);
         errorToast("Axios Failure");
       });
   };
 
-  const notValidInput = (data) => {
-    let email = data.email.toString();
-    if (
-      !RegExp(
-        /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-      ).exec(email)
-    ) {
-      toast.error("Please provide valid email");
-      return true;
-    }
-    if (data.courseName == null || data.courseUrl == null) {
-      toast.error("Course name and url are required");
-      return true;
-    }
-    return false;
-  };
-
-  const successToast = () => {
-    toast.success("Successfully submitted", {
-      position: "bottom-center",
-      autoClose: 500,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
-  };
-
-  const errorToast = (errorMessage) => {
-    toast.error(errorMessage, {
-      position: "bottom-center",
-      autoClose: 500,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
-  };
-
   return (
     <div className="suggestion h-100">
       <ToastContainer
-        position="bottom-center"
-        autoClose={500}
-        hideProgressBar
+        position="top-right"
+        autoClose={100}
+        hideProgressBar={true}
         newestOnTop={false}
-        closeOnClick
+        closeOnClick={true}
         rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
+        pauseOnFocusLoss={false}
+        draggable={true}
+        pauseOnHover={false}
         theme="light"
         transition={Slide}
+        limit={1}
       ></ToastContainer>
       <h3>Suggest a Course</h3>
-      <form onSubmit={handleSubmit}>
+      <form>
         <label htmlFor="email">Your Email:</label>
         <input
           type="text"
@@ -159,7 +169,11 @@ const Suggestion = () => {
           value={thumbnailUrl}
           onChange={(event) => setThumbnailUrl(event.target.value)}
         />
-        <button className="submit-button" onClick={handleSubmit}>
+        <button
+          className="submit-button"
+          disabled={submitDisabled}
+          onClick={handleSubmit}
+        >
           Submit
         </button>
       </form>
