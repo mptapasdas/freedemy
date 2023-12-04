@@ -1,0 +1,35 @@
+.custom-input {
+  background-color: transparent;
+  color: white;
+  border: 2px solid transparent;
+  border-bottom: 3px solid #ccc;
+  padding: 8px 12px;
+  width: 100%;
+  font-size: 0.9rem;
+  border-radius: 0px;
+  outline: none;
+  left: -10px;
+}
+
+.custom-input:focus {
+  border-bottom-color: #91c7ba; /* Change border color on focus */
+  transition: border-bottom-color 0.2s ease-in-out;
+  caret-color: white;
+}
+
+.custom-input::-webkit-input-placeholder {
+  transition: top 0.2s ease-in-out, font-size 0.2s ease-in-out,
+    color 0.2s ease-in-out;
+  color: #91c7ba;
+  top: 5px;
+  font-size: 1rem;
+  position: relative;
+  left: -10px;
+  text-align: left;
+}
+
+.custom-input:focus::-webkit-input-placeholder {
+  top: -17px;
+  font-size: 0.6rem;
+  color: #91c7ba;
+}
