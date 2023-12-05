@@ -1,13 +1,13 @@
 .suggestion {
   background-color: #344163;
   color: white;
-  padding: 20px;
-  min-height: 90vh;
+  min-height: 100vh;
 }
 
 .suggestion h3 {
   color: #04e9ae;
   text-align: center;
+  margin-top: 1rem;
   margin-bottom: 0.5rem;
 }
 
@@ -24,16 +24,6 @@
   font-size: 0.8rem;
 }
 
-.suggestion input[type="text"],
-.suggestion input[type="url"],
-.suggestion textarea {
-  display: block;
-  width: 100%;
-  padding: 5px 10px;
-  border-radius: 10px;
-  margin-bottom: 5px;
-}
-
 .submit-button {
   width: 8rem;
   border: solid;
@@ -47,6 +37,7 @@
   cursor: pointer;
   font-weight: bold;
   font-size: 1.2rem;
+  margin-top: 2rem;
 }
 
 .submit-button:disabled {
@@ -58,4 +49,10 @@
   color: #f12602;
   font-weight: bold;
   font-size: 1rem;
+}
+
+.field-holder {
+  width: 100%;
+  padding-left: 10vw;
+  padding-right: 10vw;
 }

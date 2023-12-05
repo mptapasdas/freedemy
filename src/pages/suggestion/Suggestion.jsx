@@ -5,6 +5,7 @@ import { isValidUrl, isValidEmail, isEmpty } from "../../utils/StringUtils";
 
 import "react-toastify/dist/ReactToastify.css";
 import "./Suggestion.css";
+import CustomInput from "../../components/custom-input/CustomInput";
 
 const Suggestion = () => {
   const [email, setEmail] = useState("");
@@ -118,71 +119,66 @@ const Suggestion = () => {
         limit={1}
       ></ToastContainer>
       <h3>Suggest a Course</h3>
-      <form>
-        <label htmlFor="email">
-          Your Email<span className="required">*</span>:
-        </label>
-        <input
+      <div className="field-holder">
+        <CustomInput
           type="text"
           id="email"
           value={email}
-          onChange={(event) => setEmail(event.target.value)}
-          required
+          onChangeHandler={(event) => setEmail(event.target.value)}
+          label={"Email"}
+          mandatory={true}
         />
 
-        <label htmlFor="courseName">
-          Course Name<span className="required">*</span>:
-        </label>
-        <input
+        <CustomInput
           type="text"
           id="courseName"
           value={courseName}
-          onChange={(event) => setCourseName(event.target.value)}
-          required
+          onChangeHandler={(event) => setCourseName(event.target.value)}
+          label={"Course Name"}
+          mandatory={true}
         />
 
-        <label htmlFor="instructor">Instructor:</label>
-        <input
-          type="text"
-          id="instructor"
-          value={instructor}
-          onChange={(event) => setInstructor(event.target.value)}
-        />
-
-        <label htmlFor="courseDescription">Course Description:</label>
-        <textarea
-          id="courseDescription"
-          rows="3"
-          value={courseDescription}
-          onChange={(event) => setCourseDescription(event.target.value)}
-          required
-        />
-
-        <label htmlFor="courseUrl">
-          Course URL<span className="required">*</span>:
-        </label>
-        <input
+        <CustomInput
           type="url"
           id="courseUrl"
           value={courseUrl}
-          onChange={(event) => setCourseUrl(event.target.value)}
+          onChangeHandler={(event) => setCourseUrl(event.target.value)}
+          label={"Course Url"}
+          mandatory={true}
         />
 
-        <label htmlFor="thumbnailUrl">Thumbnail URL:</label>
-        <input
+        <CustomInput
+          type="text"
+          id="instructor"
+          value={instructor}
+          onChangeHandler={(event) => setInstructor(event.target.value)}
+          label={"Instructor"}
+        />
+
+        <CustomInput
+          type="text"
+          id="courseDescription"
+          rows="2"
+          value={courseDescription}
+          onChangeHandler={(event) => setCourseDescription(event.target.value)}
+          label={"Course Description"}
+        />
+
+        <CustomInput
           type="url"
           id="thumbnailUrl"
           value={thumbnailUrl}
-          onChange={(event) => setThumbnailUrl(event.target.value)}
+          onChangeHandler={(event) => setThumbnailUrl(event.target.value)}
+          label={"Thumbnail Url"}
         />
-        <button
-          className="submit-button"
-          disabled={submitDisabled}
-          onClick={handleSubmit}
-        >
-          Submit
-        </button>
-      </form>
+      </div>
+      <button
+        className="submit-button"
+        disabled={submitDisabled}
+        onClick={handleSubmit}
+      >
+        Submit
+      </button>
     </div>
   );
 };

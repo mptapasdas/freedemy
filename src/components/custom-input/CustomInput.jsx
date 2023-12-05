@@ -2,20 +2,18 @@ import React from "react";
 import "./CustomInput.css";
 
 const CustomInput = (props) => {
-  const { value, hasError, label, type, errorText, onChangeHandler } = props;
-  const inputClass = hasError ? "custom-input error-input" : "custom-input";
-
+  const { value, label, mandatory, type, rows, onChangeHandler } = props;
   return (
-    <div className="mt-3">
+    <div className="mt-3 inputBox">
       <input
         type={type || "text"}
         id="customInput"
-        className={inputClass}
-        placeholder={label}
         value={value}
         onChange={onChangeHandler}
+        required="required"
+        rows={rows || 1}
       />
-      {hasError && <p className="error-message">{errorText}</p>}
+      <span>{`${label}${mandatory ? "*" : ""}`}</span>
     </div>
   );
 };

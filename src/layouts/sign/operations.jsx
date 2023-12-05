@@ -46,20 +46,17 @@ const Operations = () => {
         <div className="input_container d-flex flex-column justify-content-center align-items-center col-12 col-md-6">
           {operation === "register" && (
             <CustomInput
-              hasError={false}
               label="Name"
               onChangeHandler={(e) => setName(e.target.value)}
               type="text"
             />
           )}
           <CustomInput
-            hasError={false}
             label="Email"
             onChangeHandler={(e) => setEmail(e.target.value)}
             type="text"
           />
           <CustomInput
-            hasError={false}
             label="Password"
             onChangeHandler={(e) => setPassword(e.target.value)}
             type="password"
