@@ -11,8 +11,8 @@
    - Mark your favourite courses and access them from any device. Thanks to the authentication feature.
    - Be your own instrucor and complete the courses at your pace
 
-For API Documentation, bravely navigate to  [here]
 
-[website]: <https://freedemy-test.netlify.app/>
-[here]: <https://freedemy.vercel.app/api>
+
+[website]: <https://freedemy.vercel.app/>
+
 [here.]:<https://github.com/mptapasdas/Freedemy-Backend>
