@@ -122,8 +122,8 @@ const Suggestion = () => {
       ></ToastContainer>
       <h3>Suggest a Course</h3>
       <div className="row col-12">
-        <div className="col-sm-none col-md-6">
-          <img src={SuggestionImage} height="400" />
+        <div className="d-none d-md-block col-md-6 h-25">
+          <img src={SuggestionImage} alt="" className="suggestion-image" />
         </div>
         <div className="field-holder col-12 col-md-6">
           <CustomInput
