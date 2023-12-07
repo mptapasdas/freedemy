@@ -7,6 +7,8 @@ import "react-toastify/dist/ReactToastify.css";
 import "./Suggestion.css";
 import CustomInput from "../../components/custom-input/CustomInput";
 
+import SuggestionImage from "../../assets/suggest_course.png";
+
 const Suggestion = () => {
   const [email, setEmail] = useState("");
   const [courseName, setCourseName] = useState("");
@@ -103,7 +105,7 @@ const Suggestion = () => {
   };
 
   return (
-    <div className="suggestion h-100">
+    <div className="suggestion h-100 d-flex flex-column align-items-center">
       <ToastContainer
         position="top-right"
         autoClose={500}
@@ -119,66 +121,73 @@ const Suggestion = () => {
         limit={1}
       ></ToastContainer>
       <h3>Suggest a Course</h3>
-      <div className="field-holder">
-        <CustomInput
-          type="text"
-          id="email"
-          value={email}
-          onChangeHandler={(event) => setEmail(event.target.value)}
-          label={"Email"}
-          mandatory={true}
-        />
+      <div className="row col-12">
+        <div className="col-sm-none col-md-6">
+          <img src={SuggestionImage} height="400" />
+        </div>
+        <div className="field-holder col-12 col-md-6">
+          <CustomInput
+            type="text"
+            id="email"
+            value={email}
+            onChangeHandler={(event) => setEmail(event.target.value)}
+            label={"Email"}
+            mandatory={true}
+          />
 
-        <CustomInput
-          type="text"
-          id="courseName"
-          value={courseName}
-          onChangeHandler={(event) => setCourseName(event.target.value)}
-          label={"Course Name"}
-          mandatory={true}
-        />
+          <CustomInput
+            type="text"
+            id="courseName"
+            value={courseName}
+            onChangeHandler={(event) => setCourseName(event.target.value)}
+            label={"Course Name"}
+            mandatory={true}
+          />
 
-        <CustomInput
-          type="url"
-          id="courseUrl"
-          value={courseUrl}
-          onChangeHandler={(event) => setCourseUrl(event.target.value)}
-          label={"Course Url"}
-          mandatory={true}
-        />
+          <CustomInput
+            type="url"
+            id="courseUrl"
+            value={courseUrl}
+            onChangeHandler={(event) => setCourseUrl(event.target.value)}
+            label={"Course Url"}
+            mandatory={true}
+          />
 
-        <CustomInput
-          type="text"
-          id="instructor"
-          value={instructor}
-          onChangeHandler={(event) => setInstructor(event.target.value)}
-          label={"Instructor"}
-        />
+          <CustomInput
+            type="text"
+            id="instructor"
+            value={instructor}
+            onChangeHandler={(event) => setInstructor(event.target.value)}
+            label={"Instructor"}
+          />
 
-        <CustomInput
-          type="text"
-          id="courseDescription"
-          rows="2"
-          value={courseDescription}
-          onChangeHandler={(event) => setCourseDescription(event.target.value)}
-          label={"Course Description"}
-        />
+          <CustomInput
+            type="text"
+            id="courseDescription"
+            rows="2"
+            value={courseDescription}
+            onChangeHandler={(event) =>
+              setCourseDescription(event.target.value)
+            }
+            label={"Course Description"}
+          />
 
-        <CustomInput
-          type="url"
-          id="thumbnailUrl"
-          value={thumbnailUrl}
-          onChangeHandler={(event) => setThumbnailUrl(event.target.value)}
-          label={"Thumbnail Url"}
-        />
+          <CustomInput
+            type="url"
+            id="thumbnailUrl"
+            value={thumbnailUrl}
+            onChangeHandler={(event) => setThumbnailUrl(event.target.value)}
+            label={"Thumbnail Url"}
+          />
+          <button
+            className="submit-button"
+            disabled={submitDisabled}
+            onClick={handleSubmit}
+          >
+            Submit
+          </button>
+        </div>
       </div>
-      <button
-        className="submit-button"
-        disabled={submitDisabled}
-        onClick={handleSubmit}
-      >
-        Submit
-      </button>
     </div>
   );
 };
