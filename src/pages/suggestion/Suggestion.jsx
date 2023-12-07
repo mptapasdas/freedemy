@@ -5,6 +5,9 @@ import { isValidUrl, isValidEmail, isEmpty } from "../../utils/StringUtils";
 
 import "react-toastify/dist/ReactToastify.css";
 import "./Suggestion.css";
+import CustomInput from "../../components/custom-input/CustomInput";
+
+import SuggestionImage from "../../assets/suggest_course.png";
 
 const Suggestion = () => {
   const [email, setEmail] = useState("");
@@ -102,7 +105,7 @@ const Suggestion = () => {
   };
 
   return (
-    <div className="suggestion h-100">
+    <div className="suggestion h-100 d-flex flex-column align-items-center">
       <ToastContainer
         position="top-right"
         autoClose={500}
@@ -118,71 +121,73 @@ const Suggestion = () => {
         limit={1}
       ></ToastContainer>
       <h3>Suggest a Course</h3>
-      <form>
-        <label htmlFor="email">
-          Your Email<span className="required">*</span>:
-        </label>
-        <input
-          type="text"
-          id="email"
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
-          required
-        />
+      <div className="row col-12">
+        <div className="col-sm-none col-md-6">
+          <img src={SuggestionImage} height="400" />
+        </div>
+        <div className="field-holder col-12 col-md-6">
+          <CustomInput
+            type="text"
+            id="email"
+            value={email}
+            onChangeHandler={(event) => setEmail(event.target.value)}
+            label={"Email"}
+            mandatory={true}
+          />
 
-        <label htmlFor="courseName">
-          Course Name<span className="required">*</span>:
-        </label>
-        <input
-          type="text"
-          id="courseName"
-          value={courseName}
-          onChange={(event) => setCourseName(event.target.value)}
-          required
-        />
+          <CustomInput
+            type="text"
+            id="courseName"
+            value={courseName}
+            onChangeHandler={(event) => setCourseName(event.target.value)}
+            label={"Course Name"}
+            mandatory={true}
+          />
 
-        <label htmlFor="instructor">Instructor:</label>
-        <input
-          type="text"
-          id="instructor"
-          value={instructor}
-          onChange={(event) => setInstructor(event.target.value)}
-        />
+          <CustomInput
+            type="url"
+            id="courseUrl"
+            value={courseUrl}
+            onChangeHandler={(event) => setCourseUrl(event.target.value)}
+            label={"Course Url"}
+            mandatory={true}
+          />
 
-        <label htmlFor="courseDescription">Course Description:</label>
-        <textarea
-          id="courseDescription"
-          rows="3"
-          value={courseDescription}
-          onChange={(event) => setCourseDescription(event.target.value)}
-          required
-        />
+          <CustomInput
+            type="text"
+            id="instructor"
+            value={instructor}
+            onChangeHandler={(event) => setInstructor(event.target.value)}
+            label={"Instructor"}
+          />
 
-        <label htmlFor="courseUrl">
-          Course URL<span className="required">*</span>:
-        </label>
-        <input
-          type="url"
-          id="courseUrl"
-          value={courseUrl}
-          onChange={(event) => setCourseUrl(event.target.value)}
-        />
+          <CustomInput
+            type="text"
+            id="courseDescription"
+            rows="2"
+            value={courseDescription}
+            onChangeHandler={(event) =>
+              setCourseDescription(event.target.value)
+            }
+            label={"Course Description"}
+          />
 
-        <label htmlFor="thumbnailUrl">Thumbnail URL:</label>
-        <input
-          type="url"
-          id="thumbnailUrl"
-          value={thumbnailUrl}
-          onChange={(event) => setThumbnailUrl(event.target.value)}
-        />
-        <button
-          className="submit-button"
-          disabled={submitDisabled}
-          onClick={handleSubmit}
-        >
-          Submit
-        </button>
-      </form>
+          <CustomInput
+            type="url"
+            id="thumbnailUrl"
+            value={thumbnailUrl}
+            onChangeHandler={(event) => setThumbnailUrl(event.target.value)}
+            label={"Thumbnail Url"}
+          />
+          <button
+            className="submit-button"
+            disabled={submitDisabled}
+            onClick={handleSubmit}
+          >
+            Submit
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
