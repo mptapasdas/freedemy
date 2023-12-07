@@ -101,7 +101,7 @@ const NavBar = () => {
 
             <Link
               to="/suggest"
-              className="d-none d-md-block text-color text-decoration-none mr-5"
+              className="text-color text-decoration-none mr-md-5"
               onClick={() => changePage("suggest")}
             >
               <button
