@@ -1,7 +1,5 @@
 .search-hold {
   transform: translateY(-5.3rem);
-  /* background-color: bisque;
-  opacity: 50%; */
   position: relative;
   -webkit-transform: translateY(-5.3rem);
   -moz-transform: translateY(-5.3rem);
@@ -63,4 +61,3 @@ button:focus {
     width: 22rem;
   }
 }
-/*# sourceMappingURL=searchbar.styles.css.map */

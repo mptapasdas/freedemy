@@ -145,7 +145,7 @@ const Suggestion = () => {
           />
 
           <CustomInput
-            type="url"
+            type="text"
             id="courseUrl"
             value={courseUrl}
             onChangeHandler={(event) => setCourseUrl(event.target.value)}
@@ -173,7 +173,7 @@ const Suggestion = () => {
           />
 
           <CustomInput
-            type="url"
+            type="text"
             id="thumbnailUrl"
             value={thumbnailUrl}
             onChangeHandler={(event) => setThumbnailUrl(event.target.value)}
