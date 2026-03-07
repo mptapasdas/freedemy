@@ -3,9 +3,9 @@ import {
   isValidEmail,
   isNameValid,
   isPasswordValid,
-} from "../utils/StringUtils";
+} from "../utils/StringUtils.jsx";
 import axios from "axios";
-import "../axios";
+import "../axios.jsx";
 
 export const AuthContext = React.createContext();
 

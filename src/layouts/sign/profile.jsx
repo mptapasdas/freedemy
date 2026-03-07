@@ -1,5 +1,5 @@
 import React from "react";
-import { useAuthContext } from "../../context-provider/auth-provider";
+import { useAuthContext } from "../../context-provider/auth-provider.jsx";
 import authorized from "../../assets/authorized.png";
 
 const Profile = () => {

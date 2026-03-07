@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-// import { useAuthContext } from "./auth-provider";
+// import { useAuthContext } from "./auth-provider.jsx";
 
 const AppContext = React.createContext();
 

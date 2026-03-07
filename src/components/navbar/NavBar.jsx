@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Navbar, Container, Nav } from "react-bootstrap";
-import { useGlobalContext } from "../../context-provider/context-provider";
-import { useAuthContext } from "../../context-provider/auth-provider";
+import { useGlobalContext } from "../../context-provider/context-provider.jsx";
+import { useAuthContext } from "../../context-provider/auth-provider.jsx";
 import "./NavBar.css";
 
 const NavBar = () => {
@@ -22,12 +22,15 @@ const NavBar = () => {
   };
 
   const path = useLocation();
-  const pathname = path.pathname.substring(1, path.pathname.length);
-  if (!pathname) {
-    setPage("home");
-  } else {
-    setPage(pathname);
-  }
+  
+  useEffect(() => {
+    const pathname = path.pathname.substring(1, path.pathname.length);
+    if (!pathname) {
+      setPage("home");
+    } else {
+      setPage(pathname);
+    }
+  }, [path.pathname, setPage]);
 
   return (
     <Navbar

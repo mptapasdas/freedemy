@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import "./searchbar.css";
 
 import axios from "axios";
-import "../../axios";
+import "../../axios.jsx";
 
-import { useGlobalContext } from "../../context-provider/context-provider";
+import { useGlobalContext } from "../../context-provider/context-provider.jsx";
 
 const SearchBar = () => {
     const { setAllCoursesLoading, setCourseArray } = useGlobalContext();

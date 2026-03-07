@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import { Slide, ToastContainer, toast } from "react-toastify";
-import { isValidUrl, isValidEmail, isEmpty } from "../../utils/StringUtils";
+import { isValidUrl, isValidEmail, isEmpty } from "../../utils/StringUtils.jsx";
 
 import "react-toastify/dist/ReactToastify.css";
 import "./Suggestion.css";
-import CustomInput from "../../components/custom-input/CustomInput";
+import CustomInput from "../../components/custom-input/CustomInput.jsx";
 
 import SuggestionImage from "../../assets/suggest_course.png";
 

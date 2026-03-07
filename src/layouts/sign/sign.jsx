@@ -1,11 +1,11 @@
 import React from "react";
 
-import { useGlobalContext } from "../../context-provider/context-provider";
-import { useAuthContext } from "../../context-provider/auth-provider";
-import CustomModal from "../../components/custom-modal/CustomModal";
+import { useGlobalContext } from "../../context-provider/context-provider.jsx";
+import { useAuthContext } from "../../context-provider/auth-provider.jsx";
+import CustomModal from "../../components/custom-modal/CustomModal.jsx";
 
-import Operations from "./operations";
-import Profile from "./profile";
+import Operations from "./operations.jsx";
+import Profile from "./profile.jsx";
 
 import "./sign.css";
 

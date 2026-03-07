@@ -1,17 +1,17 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 
-import HomePage from "./pages/home/home";
-import Favourites from "./pages/favourites/favourites";
-import About from "./pages/about/about";
-import Suggestion from "./pages/suggestion/Suggestion";
+import HomePage from "./pages/home/home.jsx";
+import Favourites from "./pages/favourites/favourites.jsx";
+import About from "./pages/about/about.jsx";
+import Suggestion from "./pages/suggestion/Suggestion.jsx";
 
-import Sign from "./layouts/sign/sign";
-import Share from "./layouts/share/share";
+import Sign from "./layouts/sign/sign.jsx";
+import Share from "./layouts/share/share.jsx";
 
-import NavBar from "./components/navbar/NavBar";
-import Footer from "./layouts/footer/Footer";
-import Scroll from "./components/scroll-to-top/scroll";
+import NavBar from "./components/navbar/NavBar.jsx";
+import Footer from "./layouts/footer/Footer.jsx";
+import Scroll from "./components/scroll-to-top/scroll.jsx";
 
 import "./App.css";
 

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import CustomInput from "../../components/custom-input/CustomInput";
-import { useAuthContext } from "../../context-provider/auth-provider";
+import CustomInput from "../../components/custom-input/CustomInput.jsx";
+import { useAuthContext } from "../../context-provider/auth-provider.jsx";
 import loginImage from "../../assets/login_image.png";
 
 const Operations = () => {

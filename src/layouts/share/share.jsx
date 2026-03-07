@@ -1,8 +1,8 @@
 import React from "react";
 
-import CustomModal from "../../components/custom-modal/CustomModal";
+import CustomModal from "../../components/custom-modal/CustomModal.jsx";
 
-import { useGlobalContext } from "../../context-provider/context-provider";
+import { useGlobalContext } from "../../context-provider/context-provider.jsx";
 
 import "./share.css";
 

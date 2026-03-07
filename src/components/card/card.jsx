@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
 import axios from "axios";
-import "../../axios";
+import "../../axios.jsx";
 
-import { useGlobalContext } from "../../context-provider/context-provider";
-import { useAuthContext } from "../../context-provider/auth-provider";
+import { useGlobalContext } from "../../context-provider/context-provider.jsx";
+import { useAuthContext } from "../../context-provider/auth-provider.jsx";
 
 import "./card.css";
 
