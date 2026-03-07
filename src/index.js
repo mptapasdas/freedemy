@@ -1,12 +1,13 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client";
 import App from "./App";
 import { AppProvider } from "./context-provider/context-provider";
 import AuthProvider from "./context-provider/auth-provider";
 
-import { BrowserRouter } from "react-router-dom/cjs/react-router-dom.min";
+import { BrowserRouter } from "react-router-dom";
 
-ReactDOM.render(
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
     <React.StrictMode>
         <BrowserRouter>
             <AuthProvider>
@@ -15,6 +16,5 @@ ReactDOM.render(
                 </AppProvider>
             </AuthProvider>
         </BrowserRouter>
-    </React.StrictMode>,
-    document.getElementById("root")
+    </React.StrictMode>
 );

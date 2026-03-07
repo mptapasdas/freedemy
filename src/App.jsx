@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 
 import HomePage from "./pages/home/home";
 import Favourites from "./pages/favourites/favourites";
@@ -22,12 +22,12 @@ const App = () => {
       <Sign />
       <NavBar />
       <div className="main-body h-100">
-        <Switch>
-          <Route exact path="/" component={HomePage} key={1} />
-          <Route eaxct path="/favourites" component={Favourites} key={2} />
-          <Route exact path="/about" component={About} key={3} />
-          <Route exact path="/suggest" component={Suggestion} key={4} />
-        </Switch>
+        <Routes>
+          <Route path="/" element={<HomePage />} key={1} />
+          <Route path="/favourites" element={<Favourites />} key={2} />
+          <Route path="/about" element={<About />} key={3} />
+          <Route path="/suggest" element={<Suggestion />} key={4} />
+        </Routes>
       </div>
       <Footer />
       <Scroll />
